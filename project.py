@@ -99,7 +99,7 @@ def main():
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
     window = Demo()
-    #window.setMinimumSize(500, 500)
+    #Window.setMinimumSize(500, 500)
     window.show()
     sys.exit(app.exec_())
 
