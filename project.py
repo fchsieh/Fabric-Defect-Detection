@@ -35,15 +35,15 @@ class Demo(QWidget):
         button_CropImage.clicked.connect(self.cropImage)
 
         # Set layout
-        top_bar = QHBoxLayout()
+        top_bar = QVBoxLayout()
         top_bar.addWidget(button_ReadImage)
         top_bar.addWidget(button_CropImage)
 
-        root = QVBoxLayout(self)
-        root.addLayout(top_bar)
+        root = QHBoxLayout(self)
         root.addWidget(self.label)
+        root.addLayout(top_bar)
 
-        self.resize(500, 500)
+        self.resize(250, 250)
 
     def readImage(self):
         # Read image from current dir
@@ -91,6 +91,7 @@ class Demo(QWidget):
 
     def mouseReleaseEvent(self, QMouseEvent):
         if self.imageForDisplay is not None:
+            print(QMouseEvent.x(), QMouseEvent.y())
             self.currentPosition = [QMouseEvent.x(), QMouseEvent.y()]
 
 
@@ -98,7 +99,7 @@ def main():
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
     window = Demo()
-    window.setMinimumSize(500, 500)
+    #window.setMinimumSize(500, 500)
     window.show()
     sys.exit(app.exec_())
 
